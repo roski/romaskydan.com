@@ -2,5 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        /* Brand Blue */
+        --blue: 0 63 252;
+        --blue-50: 249 250 255;
+        --blue-100: 221 230 255;
+        --blue-200: 165 188 255;
+        --blue-300: 109 146 255;
+        --blue-400: 53 104 255;
+        --blue-500: var(--blue);
+        --blue-600: 0 50 201;
+        --blue-700: 0 37 150;
+        --blue-800: 0 25 99;
+        --blue-900: 0 12 48;
+        --blue-950: 0 6 23;
+        /* Brand Orange */
+        --orange: 255 103 52;
+        --orange-50: 255 240 236;
+        --orange-100: 255 225 215;
+        --orange-200: 255 195 174;
+        --orange-300: 255 164 134;
+        --orange-400: 255 134 93;
+        --orange-500: var(--orange);
+        --orange-600: 251 63 0;
+        --orange-700: 195 49 0;
+        --orange-800: 139 35 0;
+        --orange-900: 83 21 0;
+        --orange-950: 55 14 0;
+    }
+}
+
 
 
