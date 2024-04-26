@@ -8,6 +8,7 @@ export const siteInfo = {
   description: 'Developer, writer, and creator.',
   socialCardUrl: '/images/social-card.png',
   language: 'en-us',
+  theme: 'system',
 };
 
 /** Open Graph metadata */
