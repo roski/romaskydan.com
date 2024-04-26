@@ -4,6 +4,8 @@ import './globals.css';
 import { baseMetadata, siteInfo } from '@/data/metadata';
 import { ThemeProvider } from 'next-themes';
 import { Analytics } from '@vercel/analytics/react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -25,7 +27,11 @@ export default function RootLayout({
       <meta name="msapplication-config" content="/icons/browserconfig.xml" />
       <body className="bg-white text-black transition duration-500 dark:bg-gray-950 dark:text-white">
         <ThemeProvider attribute="class" defaultTheme={siteInfo.theme} enableSystem>
-          {children}
+          <div className="flex h-screen flex-col justify-between">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
           <Analytics />
         </ThemeProvider>
       </body>
