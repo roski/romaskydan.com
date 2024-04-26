@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { baseMetadata, siteInfo } from '@/data/metadata';
 import { ThemeProvider } from 'next-themes';
+import { Analytics } from '@vercel/analytics/react';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className="bg-white text-black transition duration-500 dark:bg-gray-950 dark:text-white">
         <ThemeProvider attribute="class" defaultTheme={siteInfo.theme} enableSystem>
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
