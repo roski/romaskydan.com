@@ -1,5 +1,6 @@
 import classnames from 'classnames';
-import { FaLaptop, FaMoon, FaSun } from 'react-icons/fa6';
+import { FaMoon, FaSun } from 'react-icons/fa6';
+import { FaLaptop } from 'react-icons/fa';
 import { useTheme as useNextTheme } from 'next-themes';
 import { useLayoutEffect, useState } from 'react';
 import { motion } from 'framer-motion';
