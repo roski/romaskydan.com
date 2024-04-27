@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="flex justify-center gap-x-2 p-5">
+    <footer className="section flex justify-center gap-x-2 p-5">
       <Link href="/">{siteInfo.author}</Link>
       <div>{` • `}</div>
       <div>{`© ${new Date().getFullYear()}`}</div>
