@@ -10,6 +10,34 @@ export const siteInfo = {
   socialCardUrl: '/images/social-card.png',
   language: 'en-us',
   theme: 'system',
+  logo: {
+    url: '/images/logo.svg',
+    alt: 'Logo',
+    width: 100,
+    height: 50,
+  },
+  navigation: [
+    {
+      link: '/',
+      name: 'Home',
+    },
+    {
+      link: '/work',
+      name: 'Work',
+    },
+    {
+      link: '/blog',
+      name: 'Blog',
+    },
+  ],
+  socialLinks: {
+    github: 'https://github.com/roski',
+    linkedin: 'https://www.linkedin.com/in/roman-skydan',
+    facebook: '',
+    x: '',
+    instagram: '',
+    youtube: '',
+  },
 };
 
 /** Open Graph metadata */
