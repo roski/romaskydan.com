@@ -1,69 +1,77 @@
 'use client';
 import Link from 'next/link';
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaX, FaYoutube } from 'react-icons/fa6';
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaX,
+  FaYoutube,
+} from 'react-icons/fa6';
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { navHoverTap } from '@/libs/animation-util';
 import { siteInfo } from '@/data/metadata';
 
-const { socialLinks } = siteInfo;
-
-enum SocialIconName {
-  Github = 'Github',
-  X = 'X',
-  LinkedIn = 'LinkedIn',
-  Facebook = 'Facebook',
-  Instagram = 'Instagram',
-  YouTube = 'YouTube',
-}
+type SocialIconName =
+  | 'github'
+  | 'linkedin'
+  | 'facebook'
+  | 'instagram'
+  | 'x'
+  | 'youtube';
 
 interface SocialIcon {
-  name: SocialIconName;
   icon: ReactNode;
   url: string;
 }
 
-const SOCIAL_ICONS: SocialIcon[] = [
-  {
-    name: SocialIconName.Github,
+const { socialLinks } = siteInfo;
+const SOCIAL_ICONS: { [key in SocialIconName]: SocialIcon } = {
+  github: {
     icon: <FaGithub />,
     url: socialLinks.github,
   },
-  {
-    name: SocialIconName.LinkedIn,
+  linkedin: {
     icon: <FaLinkedin />,
     url: socialLinks.linkedin,
   },
-  {
-    name: SocialIconName.Facebook,
+  facebook: {
     icon: <FaFacebook />,
     url: socialLinks.facebook,
   },
-  {
-    name: SocialIconName.Instagram,
+  instagram: {
     icon: <FaInstagram />,
     url: socialLinks.instagram,
   },
-  {
-    name: SocialIconName.X,
+  x: {
     icon: <FaX />,
     url: socialLinks.x,
   },
-  {
-    name: SocialIconName.YouTube,
+  youtube: {
     icon: <FaYoutube />,
     url: socialLinks.youtube,
   },
-];
+};
 
 export default function SocialIcons() {
+  const { order } = socialLinks;
   return (
     <nav className="flex space-x-4">
-      {SOCIAL_ICONS.map(({ icon, name, url }) => {
+      {order.map((name) => {
+        const { icon, url } = SOCIAL_ICONS[name as SocialIconName];
         return (
           url && (
-            <Link key={name} href={url} aria-label={`${name} link`} target="_blank">
-              <motion.div initial="normal" variants={navHoverTap} whileHover="hover" whileTap="tap">
+            <Link
+              key={name}
+              href={url}
+              aria-label={`${name} link`}
+              target="_blank">
+              <motion.div
+                initial="normal"
+                variants={navHoverTap}
+                whileHover="hover"
+                whileTap="tap">
                 {icon}
               </motion.div>
             </Link>

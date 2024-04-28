@@ -32,6 +32,7 @@ export const siteInfo = {
     },
   ],
   socialLinks: {
+    order: ['linkedin', 'github'],
     github: 'https://github.com/roski',
     linkedin: 'https://www.linkedin.com/in/roman-skydan',
     facebook: '',
