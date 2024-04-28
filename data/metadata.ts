@@ -5,6 +5,7 @@ import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 export const siteInfo = {
   url: 'https://romaskydan.com',
   title: 'Roman Skydan',
+  mobileTittle: 'R. Skydan',
   author: 'Roman Skydan',
   description: 'Developer, writer, and creator.',
   socialCardUrl: '/images/social-card.png',

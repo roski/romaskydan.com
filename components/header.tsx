@@ -7,12 +7,22 @@ import Navbar from '@/components/navigation/nav';
 const Logo = () => {
   const {
     title,
+    mobileTittle,
     logo: { url, alt, width, height },
   } = siteInfo;
   return (
     <Link href={'/'} className="flex items-center space-x-2">
-      <Image src={url} alt={alt} width={width} height={height} className="h-10 w-10" aria-label={alt} priority={true} />
-      <span className="font-semibold">{title}</span>
+      <Image
+        src={url}
+        alt={alt}
+        width={width}
+        height={height}
+        className="h-10 w-10"
+        aria-label={alt}
+        priority={true}
+      />
+      <span className="hidden font-semibold md:flex">{title}</span>
+      <span className="font-semibold md:hidden">{mobileTittle}</span>
     </Link>
   );
 };
