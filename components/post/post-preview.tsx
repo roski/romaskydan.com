@@ -4,17 +4,28 @@ import { formatDate } from '@/libs/util';
 import { Tag } from '@/components/tag';
 
 export function PostPreview({ post }: { post: Post }) {
-  const { title, description, slugAsParams, date, tags } = post;
+  const {
+    title,
+    description,
+    slugAsParams,
+    date,
+    tags,
+    metadata: { readingTime },
+  } = post;
   return (
-    <article className="flex flex-col border-b py-5 first:border-t">
-      <time dateTime={date} className="text-gray-500">
-        {formatDate(date)}
-      </time>
+    <article className="flex flex-col gap-1 border-b py-5 first:border-t">
+      <div className="flex gap-2 text-gray-500">
+        <time dateTime={date}>{formatDate(date)}</time>
+        <div>•</div>
+        <div>{readingTime}min read</div>
+      </div>
       <h2 className="text-2xl font-bold leading-8 tracking-tight">
         <Link href={`/blog/${slugAsParams}`}>{title}</Link>
       </h2>
-      <p>{description}</p>
-      <div className="mt-2 flex gap-1">{tags?.map((tag) => <Tag tag={tag} key={tag} />)}</div>
+      <div>{description}</div>
+      <div className="mt-1 flex gap-1">
+        {tags?.map((tag) => <Tag tag={tag} key={tag} />)}
+      </div>
     </article>
   );
 }
