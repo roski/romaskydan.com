@@ -40,3 +40,7 @@ next-env.d.ts
 
 # JetBrains IDEs
 .idea
+
+# velite files
+.velite
+public/static

@@ -30,7 +30,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme={siteInfo.theme} enableSystem>
           <div className="flex h-screen flex-col justify-between">
             <Header />
-            <main className="section">{children}</main>
+            <main className="section flex flex-1">{children}</main>
             <Footer />
           </div>
           <Analytics />

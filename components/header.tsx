@@ -18,7 +18,7 @@ const Logo = () => {
 };
 const Header = () => {
   return (
-    <header className="section text-xl">
+    <header className="section mb-5 text-xl">
       <div className="basis-1/2 lg:basis-1/3">
         <Logo />
       </div>
