@@ -1,4 +1,4 @@
-import { posts } from '#site/content';
+import { posts, Post } from '#site/content';
 import { paginatePosts } from '@/libs/blog-util';
 import { PostPreview } from '@/components/post/post-preview';
 
@@ -7,11 +7,11 @@ export default function Home() {
 
   return (
     <>
-      <section className="flex flex-col gap-5">
+      <section className="flex w-full flex-col gap-5">
         <h1 className="text-3xl font-black sm:text-5xl md:text-6xl lg:text-4xl">Latest Posts</h1>
         <div>{!latestPosts.length && 'No blog found.'}</div>
         <div>
-          {latestPosts.map((post) => (
+          {latestPosts.map((post: Post) => (
             <PostPreview post={post} key={post.slug} />
           ))}
         </div>
