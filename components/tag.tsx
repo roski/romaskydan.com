@@ -9,7 +9,7 @@ interface TagsProps {
 
 export function Tag({ tag }: TagProps) {
   return (
-    <div className="rounded-md border border-transparent px-1 py-0.5 text-sm font-medium hover:border-black/30">
+    <div className="rounded-md border border-transparent px-1 py-0.5 text-sm font-medium hover:border-black/30 dark:hover:border-white/30">
       <span className="text-blue">#</span>
       {tag}
     </div>

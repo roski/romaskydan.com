@@ -2,8 +2,7 @@ import { getPost } from '@/libs/blog-util';
 import { posts } from '#site/content';
 import { notFound } from 'next/navigation';
 import { MdxContent } from '@/components/mdx';
-import { Tags } from '@/components/tag';
-import { formatDate } from '@/libs/util';
+import { PostPreview } from '@/components/post/post-preview';
 
 export default function PostPage({
   params: { slug },
@@ -17,18 +16,12 @@ export default function PostPage({
     notFound();
   }
 
-  const { title, description, date, tags = [], content } = post;
-
   return (
-    <article className="prose w-full max-w-4xl dark:prose-invert">
-      <time dateTime={date}>{formatDate(date)}</time>
-      <h1 className="mb-1">{title}</h1>
-      {description && (
-        <p className="text-muted-foreground mb-1 mt-0 text-xl">{description}</p>
-      )}
-      <Tags tags={tags} className="mb-2" />
-      <hr className="my-6" />
-      <MdxContent code={content} />
+    <article className="flex w-full flex-col gap-4">
+      <PostPreview post={post} isPostHeader={true} />
+      <div className="prose w-full max-w-4xl dark:prose-invert">
+        <MdxContent code={post.content} />
+      </div>
     </article>
   );
 }
