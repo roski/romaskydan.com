@@ -1,7 +1,7 @@
-import { Post, posts } from '#site/content';
+import { posts } from '#site/content';
 import { paginatePosts } from '@/libs/blog-util';
-import { PostPreview } from '@/components/post/post-preview';
 import Link from 'next/link';
+import { PostList } from '@/components/post/post-list';
 
 export default function Home() {
   const latestPosts = paginatePosts(posts, 1, 5);
@@ -15,12 +15,7 @@ export default function Home() {
             All posts →
           </Link>
         </div>
-
-        <div>
-          {latestPosts.map((post: Post) => (
-            <PostPreview post={post} key={post.slug} />
-          ))}
-        </div>
+        <PostList posts={latestPosts} />
       </section>
     </>
   );

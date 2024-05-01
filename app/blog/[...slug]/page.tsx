@@ -1,7 +1,7 @@
 import { getPost } from '@/libs/blog-util';
 import { posts } from '#site/content';
 import { notFound } from 'next/navigation';
-import { MdxContent } from '@/components/mdx';
+import { MdxContent } from '@/components/post/mdx';
 import { PostPreview } from '@/components/post/post-preview';
 
 export default function PostPage({

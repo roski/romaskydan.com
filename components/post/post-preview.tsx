@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { Post } from '#site/content';
 import { formatDate } from '@/libs/util';
-import { Tags } from '@/components/tag';
 import { HiOutlineBookOpen } from 'react-icons/hi';
 import classNames from 'classnames';
+import { Tags } from '@/components/tag/tags';
 
 interface PostPreviewProps {
   post: Post;
