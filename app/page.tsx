@@ -1,10 +1,10 @@
 import { posts } from '#site/content';
-import { paginatePosts } from '@/libs/blog-util';
 import Link from 'next/link';
 import { PostList } from '@/components/post/post-list';
+import { paginatePublications } from '@/libs/util';
 
 export default function Home() {
-  const latestPosts = paginatePosts(posts, 1, 5);
+  const latestPosts = paginatePublications(posts, 1, 5);
 
   return (
     <>

@@ -1,11 +1,11 @@
 import { getTagsCountMap, sortTagsByCount } from '@/libs/tag-util';
 import { posts } from '@/.velite';
 import { PostList } from '@/components/post/post-list';
-import { sortPostsByDate } from '@/libs/blog-util';
 import { Tags } from '@/components/tag/tags';
+import { sortPublicationByDate } from '@/libs/util';
 
 export default function TagsPage() {
-  const sortedPosts = sortPostsByDate(posts);
+  const sortedPosts = sortPublicationByDate(posts);
   const tagCountsMap = getTagsCountMap(posts);
   const sortedTags = sortTagsByCount(tagCountsMap);
 

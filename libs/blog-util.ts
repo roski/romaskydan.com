@@ -1,23 +1,5 @@
 import { Post } from '#site/content';
-
-/** Sorts blog by date in descending order */
-export function sortPostsByDate(posts: Post[], descending = true) {
-  return getPublishedPosts(posts).sort((a, b) => {
-    if (a.date > b.date) return descending ? -1 : 1;
-    if (a.date < b.date) return descending ? 1 : -1;
-    return 0;
-  });
-}
-
-/** Paginates blog posts */
-export function paginatePosts(posts: Post[], page: number, perPage: number) {
-  return sortPostsByDate(posts).slice(perPage * (page - 1), perPage * page);
-}
-
-/** Get all tags from blog posts */
-export function getPublishedPosts(posts: Post[]) {
-  return posts.filter((post) => post.published);
-}
+import { sortPublicationByDate } from '@/libs/util';
 
 /** Get post by slug */
 export function getPost(slug: string, posts: Post[]): Post | undefined {
@@ -26,5 +8,7 @@ export function getPost(slug: string, posts: Post[]): Post | undefined {
 
 /** Get all posts by tag */
 export function getPostByTag(tag: string, posts: Post[]) {
-  return sortPostsByDate(posts).filter((post) => post.tags?.includes(tag));
+  return sortPublicationByDate(posts).filter((post) =>
+    post.tags?.includes(tag)
+  );
 }
