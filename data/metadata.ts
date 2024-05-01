@@ -23,8 +23,8 @@ export const siteInfo = {
       name: 'Home',
     },
     {
-      link: '/work',
-      name: 'Work',
+      link: '/projects',
+      name: 'Projects',
     },
     {
       link: '/blog',
