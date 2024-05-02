@@ -1,9 +1,9 @@
 type Publication = { published?: boolean; date: string };
 
-export function formatDate(date: string) {
+/** Format date */
+export function formatDate(date: string, onlyYear = false) {
   return new Date(date).toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
+    ...(!onlyYear && { day: 'numeric', month: 'long' }),
     year: 'numeric',
   });
 }

@@ -33,7 +33,7 @@ export function PostPreview({ post, isPostHeader }: PostPreviewProps) {
         </div>
       </div>
       <h2
-        className={classNames('font-semibold leading-8 tracking-tight', {
+        className={classNames('font-semibold', {
           'text-4xl': isPostHeader,
           'text-2xl': !isPostHeader,
         })}>

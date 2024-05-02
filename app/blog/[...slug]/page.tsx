@@ -19,7 +19,7 @@ export default function PostPage({
   return (
     <article className="flex w-full flex-col gap-4">
       <PostPreview post={post} isPostHeader={true} />
-      <div className="prose w-full max-w-4xl dark:prose-invert">
+      <div className="prose mt-4 w-full max-w-4xl dark:prose-invert">
         <MdxContent code={post.content} />
       </div>
     </article>

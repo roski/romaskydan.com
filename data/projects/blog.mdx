@@ -1,0 +1,27 @@
+---
+title: romaskydan.com
+description: The source of this website.
+date: 2024-03-04
+published: true
+source: 'https://github.com/roski/romaskydan.com'
+logo: 'images/previews/blog-logo.svg'
+---
+
+## Project details
+
+The source of this website.
+
+```js {4} showLineNumbers
+import { useFloating } from '@floating-ui/react';
+
+function MyComponent() {
+  const { refs, floatingStyles } = useFloating();
+
+  return (
+    <>
+      <div ref={refs.setReference} />
+      <div ref={refs.setFloating} style={floatingStyles} />
+    </>
+  );
+}
+```
