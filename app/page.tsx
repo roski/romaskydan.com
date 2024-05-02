@@ -1,10 +1,12 @@
-import { posts } from '#site/content';
+import { posts, projects } from '#site/content';
 import Link from 'next/link';
 import { PostList } from '@/components/post/post-list';
 import { paginatePublications } from '@/libs/util';
+import ProjectList from '@/components/project/project-list';
 
 export default function Home() {
-  const latestPosts = paginatePublications(posts, 1, 5);
+  const latestPosts = paginatePublications(posts, 1, 3);
+  const latestProjects = paginatePublications(projects, 1, 3);
 
   return (
     <>
@@ -16,6 +18,15 @@ export default function Home() {
           </Link>
         </div>
         <PostList posts={latestPosts} />
+      </section>
+      <section className="mt-10 flex w-full flex-col gap-10">
+        <div className="flex items-center justify-between font-semibold">
+          <h1 className="text-4xl">Latest projects</h1>
+          <Link href={'/projects'} className="transition-all hover:text-blue">
+            All projects →
+          </Link>
+        </div>
+        <ProjectList projects={latestProjects} />
       </section>
     </>
   );
