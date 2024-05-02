@@ -23,12 +23,12 @@ export const siteInfo = {
       name: 'Home',
     },
     {
-      link: '/projects',
-      name: 'Projects',
-    },
-    {
       link: '/blog',
       name: 'Blog',
+    },
+    {
+      link: '/projects',
+      name: 'Projects',
     },
   ],
   socialLinks: {
