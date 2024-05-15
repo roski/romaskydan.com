@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
+import { getOpenGraphMetadata } from '@/libs/metadata-util';
 
 /** Blog information */
 export const siteInfo = {
@@ -43,7 +44,7 @@ export const siteInfo = {
 };
 
 /** Open Graph metadata */
-const openGraphMetadata: OpenGraph = {
+const baseOpenGraphMetadata: OpenGraph = {
   title: siteInfo.title,
   description: siteInfo.description,
   url: siteInfo.url,
@@ -61,5 +62,5 @@ export const baseMetadata: Metadata = {
     template: `%s | ${siteInfo.title}`,
   },
   description: siteInfo.description,
-  openGraph: openGraphMetadata,
+  openGraph: getOpenGraphMetadata(baseOpenGraphMetadata, true),
 };

@@ -1,6 +1,9 @@
 import { posts } from '#site/content';
 import { PostList } from '@/components/post/post-list';
 import { sortPublicationByDate } from '@/libs/util';
+import { getPageMetadata } from '@/libs/metadata-util';
+
+export const metadata = getPageMetadata({ title: 'Blog' });
 
 export default function BlogPage() {
   const blogPosts = sortPublicationByDate(posts);
