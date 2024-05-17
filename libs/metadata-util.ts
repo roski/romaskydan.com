@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 
 /** Get Open Graph metadata */
 export function getOpenGraphMetadata(
-  { title, description, url, images }: Partial<OpenGraph>,
+  { title, description, url, images, ...rest }: Partial<OpenGraph>,
   home?: boolean
 ): OpenGraph {
   if (!siteInfo) throw new Error('Site info is not defined');
@@ -15,19 +15,23 @@ export function getOpenGraphMetadata(
     url: url || siteInfo.url,
     siteName: siteInfo.title,
     images: images ? images : [siteInfo.socialCardUrl],
-
     locale: 'en_US',
     type: 'website',
+    ...rest,
   };
 }
 
 export function getPageMetadata({
   title,
+  openGraph,
   ...rest
 }: Partial<Metadata>): Metadata {
   return {
     title,
-    openGraph: getOpenGraphMetadata({ title: title ?? siteInfo.title }),
+    openGraph: getOpenGraphMetadata({
+      title: title ?? siteInfo.title,
+      ...openGraph,
+    }),
     ...rest,
   };
 }
