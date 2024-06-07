@@ -21,9 +21,12 @@ export function PostPreview({ post, isPostHeader }: PostPreviewProps) {
   } = post;
   return (
     <article
-      className={classNames('flex flex-col gap-1 border-b py-5 ', {
-        'first:border-t': !isPostHeader,
-      })}>
+      className={classNames(
+        'flex flex-col gap-1 border-b py-5 dark:border-slate-900',
+        {
+          'first:border-t': !isPostHeader,
+        }
+      )}>
       <div className="flex gap-2 text-gray-500">
         <time dateTime={date}>{formatDate(date)}</time>
         <div>•</div>
