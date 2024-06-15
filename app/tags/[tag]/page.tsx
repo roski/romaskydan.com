@@ -25,7 +25,7 @@ export default function TagPage({ params }: TagPageProps) {
           All tags →
         </Link>
       </div>
-      <div className="flex flex-wrap gap-2 rounded-lg bg-slate-100 px-3 py-2 dark:bg-gray-800">
+      <div className="flex flex-wrap gap-2 rounded-lg bg-slate-100 px-3 py-2 dark:bg-slate-800">
         <Tag tag={tag} count={tagCountsMap[tag] ?? 0} />
       </div>
       <PostList posts={tagPosts} />

@@ -18,7 +18,7 @@ export default function ProjectPreview({
   return (
     <article
       className={classNames(
-        'flex w-full gap-3 rounded-xl bg-slate-100 px-5 py-3 dark:bg-gray-800',
+        'flex w-full gap-3 rounded-xl bg-slate-100 px-5 py-3 dark:bg-slate-800',
         { group: !isHeader }
       )}>
       {logo && (
