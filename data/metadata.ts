@@ -18,6 +18,12 @@ export const siteInfo = {
     width: 100,
     height: 50,
   },
+  introImage: {
+    url: '/images/intro.svg',
+    alt: 'Intro image',
+    width: 300,
+    height: 260,
+  },
   navigation: [
     {
       link: '/',

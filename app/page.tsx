@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { PostList } from '@/components/post/post-list';
 import { paginatePublications } from '@/libs/util';
 import ProjectList from '@/components/project/project-list';
+import React from 'react';
+import { Intro } from '@/components/intro';
 
 export default function Home() {
   const latestPosts = paginatePublications(posts, 1, 3);
@@ -10,7 +12,8 @@ export default function Home() {
 
   return (
     <>
-      <section className="flex w-full flex-col gap-5">
+      <Intro />
+      <section className="mt-10 flex w-full flex-col gap-5">
         <div className="flex items-center justify-between font-semibold">
           <h1 className="text-4xl">Latest Posts</h1>
           <Link href={'/blog'} className="transition-all hover:text-blue">
