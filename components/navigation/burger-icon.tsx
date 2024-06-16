@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import classNames from 'classnames';
 
 export interface BurgerProps {
   /** A callback which receives a single boolean argument, indicating if the icon is toggled. */
@@ -12,11 +13,9 @@ export default function BurgerIcon({ onToggle, toggled = false }: BurgerProps) {
   const topVariants = {
     burger: {
       rotate: 0,
-      backgroundColor: '',
     },
     cross: {
       rotate: 45,
-      backgroundColor: '#fff',
     },
   };
   const centerVariants = {
@@ -31,13 +30,14 @@ export default function BurgerIcon({ onToggle, toggled = false }: BurgerProps) {
   const bottomVariants = {
     burger: {
       rotate: 0,
-      backgroundColor: '',
     },
     cross: {
       rotate: -45,
-      backgroundColor: '#fff',
     },
   };
+
+  const defaultDivClasses = 'h-0.5 w-5 origin-left rounded';
+  const bgColorClass = toggled ? 'bg-white' : 'bg-black dark:bg-white';
 
   return (
     <button
@@ -48,17 +48,17 @@ export default function BurgerIcon({ onToggle, toggled = false }: BurgerProps) {
         variants={topVariants}
         animate={isToggled}
         initial="initial"
-        className="h-0.5 w-5 origin-left rounded bg-black dark:bg-white"></motion.div>
+        className={classNames(defaultDivClasses, bgColorClass)}></motion.div>
       <motion.div
         variants={centerVariants}
         animate={isToggled}
         initial="initial"
-        className="h-0.5 w-5 origin-left rounded bg-black dark:bg-white"></motion.div>
+        className={classNames(defaultDivClasses, bgColorClass)}></motion.div>
       <motion.div
         variants={bottomVariants}
         animate={isToggled}
         initial="initial"
-        className="h-0.5 w-5 origin-left rounded bg-black dark:bg-white"></motion.div>
+        className={classNames(defaultDivClasses, bgColorClass)}></motion.div>
     </button>
   );
 }
