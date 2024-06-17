@@ -14,8 +14,8 @@ export default function Home() {
     <>
       <Intro />
       <section className="mt-10 flex w-full flex-col gap-5">
-        <div className="flex items-center justify-between font-semibold">
-          <h1 className="text-4xl">Latest Posts</h1>
+        <div className="flex flex-col items-center justify-between font-bold md:flex-row">
+          <h1 className="text-3xl md:text-4xl">Latest Posts</h1>
           <Link href={'/blog'} className="transition-all hover:text-blue">
             All posts →
           </Link>
@@ -23,8 +23,8 @@ export default function Home() {
         <PostList posts={latestPosts} />
       </section>
       <section className="mt-10 flex w-full flex-col gap-10">
-        <div className="flex items-center justify-between font-semibold">
-          <h1 className="text-4xl">Latest projects</h1>
+        <div className="flex flex-col items-center justify-between font-bold md:flex-row">
+          <h1 className="text-3xl md:text-4xl">Latest projects</h1>
           <Link href={'/projects'} className="transition-all hover:text-blue">
             All projects →
           </Link>

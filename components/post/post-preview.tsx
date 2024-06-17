@@ -38,7 +38,7 @@ export function PostPreview({ post, isPostHeader }: PostPreviewProps) {
       <h2
         className={classNames('font-semibold', {
           'text-4xl': isPostHeader,
-          'text-2xl': !isPostHeader,
+          'text-xl md:text-2xl': !isPostHeader,
         })}>
         {isPostHeader ? (
           title

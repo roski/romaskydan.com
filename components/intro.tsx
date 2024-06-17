@@ -8,7 +8,7 @@ export function Intro() {
   } = siteInfo;
 
   return (
-    <section className="flex w-full flex-col-reverse items-center gap-5 rounded-xl bg-slate-100 p-10 dark:bg-slate-800 lg:flex-row">
+    <section className="flex w-full flex-col-reverse items-center gap-5 rounded-xl bg-slate-100 px-10 py-8 dark:bg-slate-800 lg:flex-row">
       <div className="flex flex-col justify-center">
         <h1 className="mb-5 text-4xl font-bold">
           Hey, I&apos;m Roman. Welcome to my world!
