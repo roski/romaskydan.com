@@ -24,6 +24,12 @@ export const siteInfo = {
     width: 300,
     height: 260,
   },
+  notFound: {
+    url: '/images/not-found.svg',
+    alt: '404 - Page not found',
+    width: 248,
+    height: 115,
+  },
   navigation: [
     {
       link: '/',
