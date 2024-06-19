@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import NavMenu from './nav-menu';
 import NavIcons from './nav-icons';
 import BurgerIcon from './burger-icon';
+import { useScrollLock } from '@/providers/scroll-provider';
 
 const MOBILE_MENU_ITEMS_ANIMATION = {
   closed: {
@@ -19,8 +20,17 @@ const MOBILE_MENU_ITEMS_ANIMATION = {
 };
 
 export default function Navbar() {
+  const { lockScroll, unlockScroll } = useScrollLock();
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (open) {
+      lockScroll();
+    } else {
+      unlockScroll();
+    }
+  }, [open, lockScroll, unlockScroll]);
 
   useEffect(() => {
     setOpen(false);
@@ -42,7 +52,7 @@ export default function Navbar() {
           variants={MOBILE_MENU_ITEMS_ANIMATION}
           initial="closed"
           animate="opened"
-          className="absolute left-0 top-0 z-0 flex h-full w-full flex-col items-center justify-center gap-8 bg-blue text-4xl text-white lg:hidden">
+          className="absolute left-0 top-0 z-10 flex h-full w-full flex-col items-center justify-center gap-8 bg-blue text-4xl text-white lg:hidden">
           <NavMenu isMobile={true} />
         </motion.div>
       )}

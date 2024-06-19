@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ScrollLockProvider } from '@/providers/scroll-provider';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -48,18 +49,20 @@ export default function RootLayout({
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-config" content="/icons/browserconfig.xml" />
       <body className="bg-white text-black transition duration-500 dark:bg-gray-950 dark:text-white">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme={siteInfo.theme}
-          enableSystem>
-          <div className="flex h-screen flex-col justify-between">
-            <Header />
-            <main className="section flex flex-1 flex-col">{children}</main>
-            <Footer />
-          </div>
-          <Analytics />
-          <SpeedInsights />
-        </ThemeProvider>
+        <ScrollLockProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme={siteInfo.theme}
+            enableSystem>
+            <div className="flex h-screen flex-col justify-between">
+              <Header />
+              <main className="section flex flex-1 flex-col">{children}</main>
+              <Footer />
+            </div>
+            <Analytics />
+            <SpeedInsights />
+          </ThemeProvider>
+        </ScrollLockProvider>
       </body>
     </html>
   );
