@@ -43,6 +43,10 @@ export const siteInfo = {
       link: '/projects',
       name: 'Projects',
     },
+    {
+      link: '/about',
+      name: 'About',
+    },
   ],
   socialLinks: {
     order: ['linkedin', 'github'],
