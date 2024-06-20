@@ -16,16 +16,9 @@ export default function ProjectPreview({
 }: ProjectCardProps) {
   const { title, description, date, source, slugAsParams, logo } = project;
   return (
-    <article
-      className={classNames(
-        'flex w-full gap-3 rounded-xl bg-slate-100 px-5 py-3 dark:bg-slate-800',
-        { group: !isHeader }
-      )}>
+    <article className="flex w-full gap-3 rounded-xl bg-slate-100 px-5 py-3 dark:bg-slate-800">
       {logo && (
-        <div
-          className={classNames('flex w-1/12 items-center justify-center', {
-            'grayscale group-hover:grayscale-0': !isHeader,
-          })}>
+        <div className="flex w-1/12 items-center justify-center">
           <Image src={logo} alt={title} />
         </div>
       )}
