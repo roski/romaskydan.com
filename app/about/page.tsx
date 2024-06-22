@@ -2,19 +2,23 @@ import { Card } from '@/components/card';
 import Link from 'next/link';
 import React from 'react';
 import { HiExternalLink } from 'react-icons/hi';
+import Image from 'next/image';
 
 const blogReasons = [
   {
+    image: '/images/learning_and_share.svg',
     title: 'Learning and Sharing',
     text: 'I have a unique ability to visualize complex ideas and patterns. I hope to make complex concepts more understandable through my illustrations.',
   },
   {
-    title: 'Personal Experience',
-    text: 'I write about what I know and have applied in practice. My articles are based on real tasks and solutions, not just theory.',
+    image: '/images/helping_others.svg',
+    title: 'Helping Others',
+    text: 'I share my findings and tips to make the programming journey easier for others.',
   },
   {
-    title: 'Openness',
-    text: 'I am open to feedback and always happy to meet new people and engage in discussions.',
+    image: '/images/small_steps.svg',
+    title: 'Small Steps',
+    text: 'I believe all big projects start with small steps. My blog is a small step towards something bigger.',
   },
 ];
 
@@ -43,9 +47,19 @@ export default function AboutPage() {
       </p>
       <h1 className="mt-3 text-4xl font-bold">Why do I run this blog?</h1>
       <div className="flex flex-col gap-4 md:flex-row">
-        {blogReasons.map(({ title, text }) => (
+        {blogReasons.map(({ title, text, image }) => (
           <Card title={title} key={title}>
-            {text}
+            <div className="flex flex-col">
+              <Image
+                className="w-36 self-center"
+                src={image}
+                alt={title}
+                priority={true}
+                width="100"
+                height="100"
+              />
+              {text}
+            </div>
           </Card>
         ))}
       </div>
