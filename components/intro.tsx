@@ -20,6 +20,7 @@ export function Intro() {
         </div>
       </div>
       <Image
+        className="h-64 min-h-64 w-80 min-w-80"
         src={url}
         alt={alt}
         priority={true}

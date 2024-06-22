@@ -51,7 +51,7 @@ export default function AboutPage() {
           <Card title={title} key={title}>
             <div className="flex flex-col">
               <Image
-                className="w-36 self-center"
+                className="h-36 min-h-36 w-36 min-w-36 self-center"
                 src={image}
                 alt={title}
                 priority={true}
