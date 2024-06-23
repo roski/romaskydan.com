@@ -3,6 +3,10 @@ import Link from 'next/link';
 import React from 'react';
 import { HiExternalLink } from 'react-icons/hi';
 import Image from 'next/image';
+import { FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { ButtonLink } from '@/components/button-link';
+import { siteInfo } from '@/data/metadata';
 
 const blogReasons = [
   {
@@ -19,6 +23,25 @@ const blogReasons = [
     image: '/images/small_steps.svg',
     title: 'Small Steps',
     text: 'I believe all big projects start with small steps. My blog is a small step towards something bigger.',
+  },
+];
+
+const { socialLinks, email } = siteInfo;
+const contactLinks = [
+  {
+    icon: <FaEnvelope />,
+    url: `mailto:${email}`,
+    title: 'Email',
+  },
+  {
+    icon: <FaGithub />,
+    url: socialLinks.github,
+    title: 'GitHub',
+  },
+  {
+    icon: <FaLinkedin />,
+    url: socialLinks.linkedin,
+    title: 'LinkedIn',
   },
 ];
 
@@ -91,6 +114,17 @@ export default function AboutPage() {
         These are the activities that fill my free time, allowing me to unwind
         and explore my creativity.
       </p>
+      <h1 className="mt-3 text-4xl font-bold">How contact me?</h1>
+      <div className="flex gap-3 text-white">
+        {contactLinks.map(({ icon, url, title }) => (
+          <ButtonLink href={url} className="flex-1" key={title}>
+            <div className="flex items-center gap-3">
+              {icon}
+              {title}
+            </div>
+          </ButtonLink>
+        ))}
+      </div>
       <h1 className="mt-3 text-4xl font-bold">A Bit About Ukraine</h1>
       <Card>
         <p>
