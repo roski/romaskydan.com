@@ -49,25 +49,39 @@ export default function AboutPage() {
   return (
     <section className="flex w-full flex-col gap-5">
       <h1 className="text-4xl font-bold">About me</h1>
-      <p>
-        I&apos;m Roman Skydan. I live in Kyiv, Ukraine, with my girlfriend and
-        two cats.
-      </p>
-      <p>
-        I consider myself a pretty good web developer and a bit of a designer.
-        My IT career started about 10 years ago. Before that, I was positioning
-        myself as a designer, dreaming of one day creating my own studio. During
-        my last years at university, I even worked as an art director for an
-        advertising agency. But fate led me to programming, and now I
-        couldn&apos;t be happier. Today, I develop web application interfaces,
-        striving to make them not only beautiful but also user-friendly.
-      </p>
-      <p>
-        Currently, I work in front-end development using technologies like
-        Angular and React, and anything related to JavaScript. However, my
-        interest in technology doesn&apos;t stop there. By the way, my blog is
-        written in Next.js.
-      </p>
+      <div className="flex flex-col-reverse items-center gap-10 md:flex-row">
+        <div className="flex w-auto flex-col md:w-2/3">
+          <p>
+            I&apos;m Roman Skydan. I live in Kyiv, Ukraine, with my girlfriend
+            and two cats.
+          </p>
+          <p>
+            I consider myself a pretty good web developer and a bit of a
+            designer. My IT career started about 10 years ago. Before that, I
+            was positioning myself as a designer, dreaming of one day creating
+            my own studio. During my last years at university, I even worked as
+            an art director for an advertising agency. But fate led me to
+            programming, and now I couldn&apos;t be happier. Today, I develop
+            web application interfaces, striving to make them not only beautiful
+            but also user-friendly.
+          </p>
+          <p>
+            Currently, I work in front-end development using technologies like
+            Angular and React, and anything related to JavaScript. However, my
+            interest in technology doesn&apos;t stop there. By the way, my blog
+            is written in Next.js.
+          </p>
+        </div>
+        <div className="h-96 w-auto overflow-hidden rounded-xl md:w-1/3">
+          <Image
+            className="h-full object-cover object-top sm:object-right"
+            src="/images/my-photo.jpg"
+            alt="My photo"
+            width={854}
+            height={1280}
+          />
+        </div>
+      </div>
       <h1 className="mt-3 text-4xl font-bold">Why do I run this blog?</h1>
       <div className="flex flex-col gap-4 md:flex-row">
         {blogReasons.map(({ title, text, image }) => (
@@ -115,7 +129,7 @@ export default function AboutPage() {
         and explore my creativity.
       </p>
       <h1 className="mt-3 text-4xl font-bold">How contact me?</h1>
-      <div className="flex gap-3 text-white">
+      <div className="flex flex-col gap-3 text-white md:flex-row">
         {contactLinks.map(({ icon, url, title }) => (
           <ButtonLink href={url} className="flex-1" key={title}>
             <div className="flex items-center gap-3">
