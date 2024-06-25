@@ -80,4 +80,10 @@ export const baseMetadata: Metadata = {
   },
   description: siteInfo.description,
   openGraph: getOpenGraphMetadata(baseOpenGraphMetadata, true),
+  alternates: {
+    types: {
+      'application/rss+xml': `${siteInfo.url}/feed.xml`,
+      'application/atom+xml': `${siteInfo.url}/atom.xml`,
+    },
+  },
 };
