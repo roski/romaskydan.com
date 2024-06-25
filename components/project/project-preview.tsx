@@ -14,7 +14,7 @@ export default function ProjectPreview({
   project,
   isHeader,
 }: ProjectCardProps) {
-  const { title, description, date, source, slugAsParams, logo } = project;
+  const { title, description, created, source, slugAsParams, logo } = project;
   return (
     <article className="flex w-full gap-3 rounded-xl bg-slate-100 px-5 py-3 dark:bg-slate-800">
       {logo && (
@@ -24,8 +24,8 @@ export default function ProjectPreview({
       )}
       <div className="flex flex-1 flex-col gap-1">
         <div className="flex items-center justify-between">
-          <time dateTime={date} className="text-gray-500">
-            {formatDate(date, true)}
+          <time dateTime={created} className="text-gray-500">
+            {formatDate(created, true)}
           </time>
           {source && (
             <Link

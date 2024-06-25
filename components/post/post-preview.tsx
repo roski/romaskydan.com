@@ -15,7 +15,7 @@ export function PostPreview({ post, isPostHeader }: PostPreviewProps) {
     title,
     description,
     slugAsParams,
-    date,
+    created,
     tags = [],
     metadata: { readingTime },
   } = post;
@@ -28,7 +28,7 @@ export function PostPreview({ post, isPostHeader }: PostPreviewProps) {
         }
       )}>
       <div className="flex gap-2 text-gray-500">
-        <time dateTime={date}>{formatDate(date)}</time>
+        <time dateTime={created}>{formatDate(created)}</time>
         <div>•</div>
         <div className="flex items-center gap-1">
           <HiOutlineBookOpen />

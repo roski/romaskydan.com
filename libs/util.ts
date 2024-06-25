@@ -1,4 +1,4 @@
-type Publication = { published?: boolean; date: string };
+type Publication = { published?: boolean; created: string };
 
 /** Format date */
 export function formatDate(date: string, onlyYear = false) {
@@ -19,8 +19,8 @@ export function sortPublicationByDate<T extends Publication>(
   descending = true
 ) {
   return getPublicationItems(items).sort((a, b) => {
-    if (a.date > b.date) return descending ? -1 : 1;
-    if (a.date < b.date) return descending ? 1 : -1;
+    if (a.created > b.created) return descending ? -1 : 1;
+    if (a.created < b.created) return descending ? 1 : -1;
     return 0;
   });
 }
