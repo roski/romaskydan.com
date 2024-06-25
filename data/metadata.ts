@@ -11,7 +11,7 @@ export const siteInfo = {
   email: 'roma.skidan@gmail.com',
   description: 'Developer, writer, and creator.',
   socialCardUrl: '/images/social-card.png',
-  language: 'en-us',
+  language: 'en-Us',
   theme: 'system',
   logo: {
     url: '/images/logo.svg',
