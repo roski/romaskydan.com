@@ -8,7 +8,7 @@ export const siteInfo = {
   title: 'Roman Skydan',
   mobileTittle: 'R. Skydan',
   author: 'Roman Skydan',
-  email: 'roma.skidan@gmail.com',
+  email: 'roman@romaskydan.com',
   description: 'Developer, writer, and creator.',
   socialCardUrl: '/images/social-card.png',
   language: 'en-Us',
