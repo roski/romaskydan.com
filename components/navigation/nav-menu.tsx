@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { navHoverTap } from '@/libs/animation-util';
 import { siteInfo } from '@/data/metadata';
 
-interface NavMenuItem {
+export interface NavMenuItem {
   name: string;
   link: string;
   hidden?: boolean;
@@ -30,7 +30,10 @@ function NavMenuItem({ name, link, isActive = false }: NavMenuItemProps) {
       whileHover={isActive ? 'normal' : 'hover'}
       whileTap={isActive ? 'normal' : 'tap'}
       className="relative flex items-center justify-center pb-1 pl-3 pr-3 pt-1">
-      <Link key={link} href={link} className={classNames('z-10', { 'text-white': isActive })}>
+      <Link
+        key={link}
+        href={link}
+        className={classNames('z-10', { 'text-white': isActive })}>
         {name}
       </Link>
       {isActive && (
@@ -46,7 +49,10 @@ function NavMenuItem({ name, link, isActive = false }: NavMenuItemProps) {
 
 function NavMobileMenuItem({ link, name, isActive = false }: NavMenuItemProps) {
   return (
-    <Link key={link} href={link} className={classNames('z-10', { 'text-white/50': !isActive })}>
+    <Link
+      key={link}
+      href={link}
+      className={classNames('z-10', { 'text-white/50': !isActive })}>
       {name}
     </Link>
   );
