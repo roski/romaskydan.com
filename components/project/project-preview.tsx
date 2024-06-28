@@ -59,11 +59,10 @@ export default function ProjectPreview({
           </div>
 
           <h2
-            className={classNames('font-semibold', {
-              'text-4xl': isHeader,
-              'text-2xl': !isHeader,
+            className={classNames('text-2xl font-semibold', {
+              'md:text-4xl': isHeader,
             })}>
-            title
+            {title}
           </h2>
           {description ?? <p>{description}</p>}
         </div>
