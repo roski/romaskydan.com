@@ -16,44 +16,44 @@ export default function ProjectPreview({
 }: ProjectCardProps) {
   const { title, description, created, source, slugAsParams, logo } = project;
   return (
-    <article className="flex w-full gap-3 rounded-xl bg-slate-100 px-5 py-3 dark:bg-slate-800">
-      {logo && (
-        <div className="flex w-1/12 items-center justify-center">
-          <Image src={logo} alt={title} />
-        </div>
-      )}
-      <div className="flex flex-1 flex-col gap-1">
-        <div className="flex items-center justify-between">
-          <time dateTime={created} className="text-gray-500">
-            {formatDate(created, true)}
-          </time>
-          {source && (
-            <Link
-              href={source}
-              aria-label="Project source"
-              className="hover:text-blue">
-              <FaGithub />
-            </Link>
-          )}
-        </div>
+    <Link
+      href={`/projects/${slugAsParams}`}
+      className={classNames({
+        'pointer-events-none': isHeader,
+      })}
+      aria-disabled={isHeader}
+      tabIndex={isHeader ? -1 : undefined}>
+      <article className="flex w-full gap-3 rounded-xl bg-slate-100 px-5 pb-5 pt-3 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700">
+        {logo && (
+          <div className="flex w-1/12 items-center justify-center">
+            <Image src={logo} alt={title} />
+          </div>
+        )}
+        <div className="flex flex-1 flex-col gap-1">
+          <div className="flex items-center justify-between">
+            <time dateTime={created} className="text-gray-500">
+              {formatDate(created, true)}
+            </time>
+            {source && (
+              <Link
+                href={source}
+                aria-label="Project source"
+                className="hover:text-blue">
+                <FaGithub />
+              </Link>
+            )}
+          </div>
 
-        <h2
-          className={classNames('font-semibold', {
-            'text-4xl': isHeader,
-            'text-2xl': !isHeader,
-          })}>
-          {isHeader ? (
-            title
-          ) : (
-            <Link
-              href={`/projects/${slugAsParams}`}
-              className="hover:text-blue">
-              {title}
-            </Link>
-          )}
-        </h2>
-        {description ?? <p>{description}</p>}
-      </div>
-    </article>
+          <h2
+            className={classNames('font-semibold', {
+              'text-4xl': isHeader,
+              'text-2xl': !isHeader,
+            })}>
+            {title}
+          </h2>
+          {description ?? <p>{description}</p>}
+        </div>
+      </article>
+    </Link>
   );
 }
