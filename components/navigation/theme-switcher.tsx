@@ -1,3 +1,4 @@
+'use client';
 import classnames from 'classnames';
 import { FaMoon, FaSun } from 'react-icons/fa6';
 import { FaLaptop } from 'react-icons/fa';
@@ -54,7 +55,7 @@ export default function ThemeSwitcher() {
       aria-label="Toggle theme">
       <motion.div
         key={theme}
-        variants={iconAnimation(theme)}
+        variants={mounted ? iconAnimation(theme) : {}}
         initial="hidden"
         animate="visible"
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}>
