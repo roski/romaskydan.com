@@ -39,6 +39,7 @@ const projects = defineCollection({
       source: s.string().optional(),
       logo: s.image().optional(),
       content: s.mdx(),
+      tags: s.array(s.string()).optional(),
     })
     .transform(computedFields),
 });

@@ -22,7 +22,7 @@ export function PostPreview({ post, isPostHeader }: PostPreviewProps) {
   return (
     <article
       className={classNames(
-        'flex flex-col gap-1 border-b py-5 dark:border-slate-900',
+        'flex flex-col gap-1 border-b py-5 last:border-b-0 dark:border-slate-900',
         {
           'first:border-t': !isPostHeader,
         }
