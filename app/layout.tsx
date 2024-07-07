@@ -8,6 +8,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ScrollLockProvider } from '@/providers/scroll-provider';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -64,6 +65,9 @@ export default function RootLayout({
           </ThemeProvider>
         </ScrollLockProvider>
       </body>
+      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+      )}
     </html>
   );
 }
