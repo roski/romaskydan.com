@@ -8,7 +8,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ScrollLockProvider } from '@/providers/scroll-provider';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -49,6 +49,9 @@ export default function RootLayout({
       />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-config" content="/icons/browserconfig.xml" />
+      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+      )}
       <body className="bg-white text-black transition duration-500 dark:bg-gray-950 dark:text-white">
         <ScrollLockProvider>
           <ThemeProvider
