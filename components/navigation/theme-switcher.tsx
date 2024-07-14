@@ -2,11 +2,9 @@
 import classnames from 'classnames';
 import { FaMoon, FaSun } from 'react-icons/fa6';
 import { FaLaptop } from 'react-icons/fa';
-import { useTheme as useNextTheme } from 'next-themes';
 import { useLayoutEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-
-type Theme = 'dark' | 'light' | 'system';
+import { Theme, useTheme } from '@/providers/theme-provider';
 
 const iconAnimation = (theme: Theme) => {
   const x = theme === 'dark' ? 100 : -100;
@@ -21,12 +19,6 @@ const iconAnimation = (theme: Theme) => {
     },
   };
 };
-
-function useTheme() {
-  const { theme, setTheme } = useNextTheme();
-  return { theme: theme as Theme, setTheme };
-}
-
 export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();

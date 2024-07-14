@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { getOpenGraphMetadata } from '@/libs/metadata-util';
+import { GiscusProps } from '@giscus/react';
 
 /** Blog information */
 export const siteInfo = {
@@ -58,6 +59,21 @@ export const siteInfo = {
     instagram: '',
     youtube: '',
   },
+};
+
+export const giscusInfo: GiscusProps = {
+  id: 'comments',
+  repo: 'roski/romaskydan.com',
+  repoId: 'R_kgDOLyzzBw',
+  category: 'Show and tell',
+  categoryId: 'DIC_kwDOLyzzB84CgyD7',
+  mapping: 'pathname',
+  strict: '0',
+  reactionsEnabled: '1',
+  emitMetadata: '1',
+  inputPosition: 'top',
+  theme: 'preferred_color_scheme',
+  lang: 'en',
 };
 
 /** Open Graph metadata */

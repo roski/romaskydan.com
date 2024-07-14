@@ -3,6 +3,7 @@ import { posts } from '#site/content';
 import { notFound } from 'next/navigation';
 import { MdxContent } from '@/components/post/mdx';
 import { PostPreview } from '@/components/post/post-preview';
+import { Comments } from '@/components/comments';
 
 export const generateStaticParams = () => {
   return posts.map((p) => ({ slug: p.slug.split('/') }));
@@ -26,6 +27,7 @@ export default function PostPage({
       <div className="prose mt-4 w-full max-w-4xl dark:prose-invert">
         <MdxContent code={post.content} />
       </div>
+      <Comments />
     </article>
   );
 }
