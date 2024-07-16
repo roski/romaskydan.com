@@ -9,5 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: '/cv/',
     },
     sitemap: `${siteInfo.url}/sitemap.xml`,
+    host: siteInfo.url,
   };
 }
