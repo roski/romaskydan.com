@@ -7,6 +7,7 @@ import { FaEnvelope } from 'react-icons/fa';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { ButtonLink } from '@/components/button-link';
 import { siteInfo } from '@/data/metadata';
+import { getPageMetadata } from '@/libs/metadata-util';
 
 const blogReasons = [
   {
@@ -44,6 +45,8 @@ const contactLinks = [
     title: 'LinkedIn',
   },
 ];
+
+export const metadata = getPageMetadata({ title: siteInfo.pageTitles.about });
 
 export default function AboutPage() {
   return (

@@ -3,6 +3,10 @@ import { posts } from '@/.velite';
 import { PostList } from '@/components/post/post-list';
 import { Tags } from '@/components/tag/tags';
 import { sortPublicationByDate } from '@/libs/util';
+import { getPageMetadata } from '@/libs/metadata-util';
+import { siteInfo } from '@/data/metadata';
+
+export const metadata = getPageMetadata({ title: siteInfo.pageTitles.tags });
 
 export default function TagsPage() {
   const sortedPosts = sortPublicationByDate(posts);

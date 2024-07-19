@@ -4,15 +4,14 @@ import { Metadata } from 'next';
 
 /** Get Open Graph metadata */
 export function getOpenGraphMetadata(
-  { title, description, url, images, ...rest }: Partial<OpenGraph>,
+  { title, description, images, ...rest }: Partial<OpenGraph>,
   home?: boolean
 ): OpenGraph {
-  if (!siteInfo) throw new Error('Site info is not defined');
-  if (typeof title !== 'string') throw new Error('Title must be a string');
+  const safeTitle = typeof title === 'string' ? title : '';
   return {
-    title: home || !title ? siteInfo.title : `${title} | ${siteInfo.title}`,
+    title: home || !title ? siteInfo.title : `${safeTitle} | ${siteInfo.title}`,
     description: description || siteInfo.description,
-    url: url || siteInfo.url,
+    url: './',
     siteName: siteInfo.title,
     images: images ? images : [siteInfo.socialCardUrl],
     locale: 'en_US',
@@ -21,16 +20,18 @@ export function getOpenGraphMetadata(
   };
 }
 
-export function getPageMetadata({
-  title,
-  openGraph,
-  ...rest
-}: Partial<Metadata>): Metadata {
+export function getPageMetadata(
+  { title, description, ...rest }: Partial<Metadata>,
+  image?: string
+): Metadata {
+  const safeTitle = title || siteInfo.title;
+  const safeDescription = description || siteInfo.description;
   return {
     title,
     openGraph: getOpenGraphMetadata({
-      title: title ?? siteInfo.title,
-      ...openGraph,
+      title: safeTitle,
+      description: safeDescription,
+      images: image,
     }),
     ...rest,
   };

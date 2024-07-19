@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { getOpenGraphMetadata } from '@/libs/metadata-util';
 import { GiscusProps } from '@giscus/react';
 
@@ -50,6 +49,12 @@ export const siteInfo = {
       name: 'About',
     },
   ],
+  pageTitles: {
+    blog: 'Blog',
+    projects: 'Projects',
+    about: 'About',
+    tags: 'Tags',
+  },
   socialLinks: {
     order: ['linkedin', 'github'],
     github: 'https://github.com/roski',
@@ -76,17 +81,6 @@ export const giscusInfo: GiscusProps = {
   lang: 'en',
 };
 
-/** Open Graph metadata */
-const baseOpenGraphMetadata: OpenGraph = {
-  title: siteInfo.title,
-  description: siteInfo.description,
-  url: siteInfo.url,
-  siteName: siteInfo.title,
-  images: [siteInfo.socialCardUrl],
-  locale: 'en_US',
-  type: 'website',
-};
-
 /** Base site metadata */
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteInfo.url),
@@ -95,7 +89,7 @@ export const baseMetadata: Metadata = {
     template: `%s | ${siteInfo.title}`,
   },
   description: siteInfo.description,
-  openGraph: getOpenGraphMetadata(baseOpenGraphMetadata, true),
+  openGraph: getOpenGraphMetadata({}, true),
   alternates: {
     types: {
       'application/rss+xml': `${siteInfo.url}/feed.xml`,
