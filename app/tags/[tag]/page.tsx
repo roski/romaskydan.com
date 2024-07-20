@@ -5,11 +5,19 @@ import { posts } from '#site/content';
 import { PostList } from '@/components/post/post-list';
 import { getTagsCountMap } from '@/libs/tag-util';
 import Link from 'next/link';
+import { getPageMetadata } from '@/libs/metadata-util';
 
 interface TagPageProps {
   params: {
     tag: string;
   };
+}
+
+export function generateMetadata({ params }: TagPageProps) {
+  const tag = decodeURI(params.tag);
+  return getPageMetadata({
+    title: `Posts with tag #${tag}`,
+  });
 }
 
 export default function TagPage({ params }: TagPageProps) {

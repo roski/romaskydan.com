@@ -5,11 +5,26 @@ import ProjectPreview from '@/components/project/project-preview';
 import { MdxContent } from '@/components/post/mdx';
 import { getPostByTag } from '@/libs/blog-util';
 import { PostList } from '@/components/post/post-list';
+import { getPageMetadata } from '@/libs/metadata-util';
+import { Metadata } from 'next';
 
 interface ProjectPageProps {
   params: {
     project: string;
   };
+}
+
+export function generateMetadata({
+  params,
+}: ProjectPageProps): Metadata | undefined {
+  const projectSlug = decodeURI(params.project);
+  const project = getProject(projectSlug, projects);
+  if (!project) {
+    return;
+  }
+  return getPageMetadata({
+    title: project.title,
+  });
 }
 
 export const generateStaticParams = () => {
