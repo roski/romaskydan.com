@@ -25,6 +25,7 @@ export async function generateMetadata({
   }
   return getPageMetadata({
     title: project.title,
+    description: project.description,
   });
 }
 
