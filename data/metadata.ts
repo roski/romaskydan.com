@@ -54,6 +54,7 @@ export const siteInfo = {
     projects: 'Projects',
     about: 'About',
     tags: 'Tags',
+    tag: 'Posts with tag #%s',
   },
   socialLinks: {
     order: ['linkedin', 'github'],

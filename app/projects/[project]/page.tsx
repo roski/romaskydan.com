@@ -14,9 +14,10 @@ interface ProjectPageProps {
   };
 }
 
-export function generateMetadata({
+// eslint-disable-next-line @typescript-eslint/require-await
+export async function generateMetadata({
   params,
-}: ProjectPageProps): Metadata | undefined {
+}: ProjectPageProps): Promise<Metadata | undefined> {
   const projectSlug = decodeURI(params.project);
   const project = getProject(projectSlug, projects);
   if (!project) {

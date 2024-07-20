@@ -14,9 +14,10 @@ interface BlogPostProps {
   };
 }
 
-export function generateMetadata({
+// eslint-disable-next-line @typescript-eslint/require-await
+export async function generateMetadata({
   params: { slug },
-}: BlogPostProps): Metadata | undefined {
+}: BlogPostProps): Promise<Metadata | undefined> {
   const postSlug = slug.join('/');
   const post = getPost(postSlug, posts);
   if (!post) {
