@@ -5,8 +5,8 @@ import ProjectPreview from '@/components/project/project-preview';
 import { MdxContent } from '@/components/post/mdx';
 import { getPostByTag } from '@/libs/blog-util';
 import { PostList } from '@/components/post/post-list';
-import { getPageMetadata } from '@/libs/metadata-util';
 import { Metadata } from 'next';
+import { getPageMetadata } from '@/libs/metadata-util';
 
 interface ProjectPageProps {
   params: {

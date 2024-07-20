@@ -46,7 +46,7 @@ const contactLinks = [
   },
 ];
 
-export const metadata = getPageMetadata({ title: siteInfo.pageTitles.about });
+export const metadata = getPageMetadata({ title: 'About' });
 
 export default function AboutPage() {
   return (

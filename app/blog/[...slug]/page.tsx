@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation';
 import { MdxContent } from '@/components/post/mdx';
 import { PostPreview } from '@/components/post/post-preview';
 import { Comments } from '@/components/comments';
-import { getPageMetadata } from '@/libs/metadata-util';
 import { Metadata } from 'next';
+import { getPageMetadata } from '@/libs/metadata-util';
 import { siteInfo } from '@/data/metadata';
 
 interface BlogPostProps {

@@ -6,7 +6,6 @@ import { PostList } from '@/components/post/post-list';
 import { getTagsCountMap } from '@/libs/tag-util';
 import Link from 'next/link';
 import { getPageMetadata } from '@/libs/metadata-util';
-import { siteInfo } from '@/data/metadata';
 
 interface TagPageProps {
   params: {
@@ -16,10 +15,8 @@ interface TagPageProps {
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function generateMetadata({ params }: TagPageProps) {
-  const tag = decodeURI(params.tag);
-  getPageMetadata.bind(siteInfo);
   return getPageMetadata({
-    title: siteInfo.pageTitles.tag.replace('%s', tag),
+    title: `Posts with tag #${decodeURI(params.tag)}`,
   });
 }
 

@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { getOpenGraphMetadata } from '@/libs/metadata-util';
 import { GiscusProps } from '@giscus/react';
 
 /** Blog information */
@@ -49,13 +48,6 @@ export const siteInfo = {
       name: 'About',
     },
   ],
-  pageTitles: {
-    blog: 'Blog',
-    projects: 'Projects',
-    about: 'About',
-    tags: 'Tags',
-    tag: 'Posts with tag #%s',
-  },
   socialLinks: {
     order: ['linkedin', 'github'],
     github: 'https://github.com/roski',
@@ -90,7 +82,15 @@ export const baseMetadata: Metadata = {
     template: `%s | ${siteInfo.title}`,
   },
   description: siteInfo.description,
-  openGraph: getOpenGraphMetadata({}, true),
+  openGraph: {
+    title: siteInfo.title,
+    description: siteInfo.description,
+    url: './',
+    siteName: siteInfo.title,
+    images: [siteInfo.socialCardUrl],
+    locale: 'en_US',
+    type: 'website',
+  },
   alternates: {
     types: {
       'application/rss+xml': `${siteInfo.url}/feed.xml`,
@@ -107,5 +107,10 @@ export const baseMetadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  twitter: {
+    title: siteInfo.title,
+    card: 'summary_large_image',
+    images: [siteInfo.socialCardUrl],
   },
 };
