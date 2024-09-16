@@ -48,7 +48,13 @@ export function PostPreview({ post, isPostHeader }: PostPreviewProps) {
           </Link>
         )}
       </h2>
-      <div>{description}</div>
+      <div
+        className={classNames({
+          'mt-4': isPostHeader,
+          'mt-2': !isPostHeader,
+        })}>
+        {description}
+      </div>
       <Tags tags={tags} className="mt-1" />
     </article>
   );
