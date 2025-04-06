@@ -47,7 +47,7 @@ function RssIcon() {
 
 const Footer = () => {
   return (
-    <footer className="section mt-14 flex-col gap-14 border-t !py-14 dark:border-slate-900">
+    <footer className="section mt-14 flex-col gap-14 border-t py-14! dark:border-slate-900">
       <div className="gap grid grid-cols-1 gap-20 md:grid-cols-2">
         <div className="flex flex-col gap-3">
           <div className="text-xl font-bold">{siteInfo.author}</div>

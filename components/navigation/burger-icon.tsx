@@ -36,7 +36,7 @@ export default function BurgerIcon({ onToggle, toggled = false }: BurgerProps) {
     },
   };
 
-  const defaultDivClasses = 'h-0.5 w-5 origin-left rounded';
+  const defaultDivClasses = 'h-0.5 w-5 origin-left rounded-sm';
   const bgColorClass = toggled ? 'bg-white' : 'bg-black dark:bg-white';
 
   return (
