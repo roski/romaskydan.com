@@ -8,19 +8,21 @@ import Link from 'next/link';
 import { getPageMetadata } from '@/libs/metadata-util';
 
 interface TagPageProps {
-  params: {
+  params: Promise<{
     tag: string;
-  };
+  }>;
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
-export async function generateMetadata({ params }: TagPageProps) {
+export async function generateMetadata(props: TagPageProps) {
+  const params = await props.params;
   return getPageMetadata({
     title: `Posts with tag #${decodeURI(params.tag)}`,
   });
 }
 
-export default function TagPage({ params }: TagPageProps) {
+export default async function TagPage(props: TagPageProps) {
+  const params = await props.params;
   const tag = params.tag.split('-').join(' ');
   const tagPosts = getPostByTag(tag, posts);
   const tagCountsMap = getTagsCountMap(tagPosts);
@@ -29,7 +31,7 @@ export default function TagPage({ params }: TagPageProps) {
     <section className="flex w-full flex-col gap-5">
       <div className="flex items-center justify-between font-semibold">
         <h1 className="text-4xl">Tags</h1>
-        <Link href={'/tags'} className="transition-all hover:text-blue">
+        <Link href={'/tags'} className="hover:text-blue transition-all">
           All tags →
         </Link>
       </div>

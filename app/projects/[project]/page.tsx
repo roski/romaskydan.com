@@ -9,15 +9,16 @@ import { Metadata } from 'next';
 import { getPageMetadata } from '@/libs/metadata-util';
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     project: string;
-  };
+  }>;
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
-export async function generateMetadata({
-  params,
-}: ProjectPageProps): Promise<Metadata | undefined> {
+export async function generateMetadata(
+  props: ProjectPageProps
+): Promise<Metadata | undefined> {
+  const params = await props.params;
   const projectSlug = decodeURI(params.project);
   const project = getProject(projectSlug, projects);
   if (!project) {
@@ -33,9 +34,11 @@ export const generateStaticParams = () => {
   return projects.map((p) => ({ slug: p.slug.split('/') }));
 };
 
-export default function ProjectPage({
-  params: { project: projectSlug },
-}: ProjectPageProps) {
+export default async function ProjectPage(props: ProjectPageProps) {
+  const params = await props.params;
+
+  const { project: projectSlug } = params;
+
   const project = getProject(projectSlug, projects);
   let projectPosts: Post[] = [];
 
@@ -52,7 +55,7 @@ export default function ProjectPage({
   return (
     <article className="flex w-full flex-col gap-4">
       <ProjectPreview project={project} isHeader={true} />
-      <div className="prose mt-5 w-full max-w-4xl dark:prose-invert">
+      <div className="prose dark:prose-invert mt-5 w-full max-w-4xl">
         <MdxContent code={project.content} />
       </div>
       {projectPosts.length && (

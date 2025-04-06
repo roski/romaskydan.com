@@ -9,15 +9,19 @@ import { getPageMetadata } from '@/libs/metadata-util';
 import { siteInfo } from '@/data/metadata';
 
 interface BlogPostProps {
-  params: {
+  params: Promise<{
     slug: string[];
-  };
+  }>;
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
-export async function generateMetadata({
-  params: { slug },
-}: BlogPostProps): Promise<Metadata | undefined> {
+export async function generateMetadata(
+  props: BlogPostProps
+): Promise<Metadata | undefined> {
+  const params = await props.params;
+
+  const { slug } = params;
+
   const postSlug = slug.join('/');
   const post = getPost(postSlug, posts);
   if (!post) {
@@ -47,7 +51,11 @@ export const generateStaticParams = () => {
   return posts.map((p) => ({ slug: p.slug.split('/') }));
 };
 
-export default function PostPage({ params: { slug } }: BlogPostProps) {
+export default async function PostPage(props: BlogPostProps) {
+  const params = await props.params;
+
+  const { slug } = params;
+
   const postSlug = slug.join('/');
   const post = getPost(postSlug, posts);
 
@@ -58,7 +66,7 @@ export default function PostPage({ params: { slug } }: BlogPostProps) {
   return (
     <article className="flex w-full flex-col gap-4">
       <PostPreview post={post} isPostHeader={true} />
-      <div className="prose mt-4 w-full max-w-4xl dark:prose-invert">
+      <div className="prose dark:prose-invert mt-4 w-full max-w-4xl">
         <MdxContent code={post.content} />
       </div>
       <Comments />
