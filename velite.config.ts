@@ -2,6 +2,8 @@ import { defineCollection, defineConfig, s } from 'velite';
 import rehypeSlug from 'rehype-slug';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import githubLight from 'shiki/themes/github-light.mjs';
+import githubDarkDimmed from 'shiki/themes/github-dark-dimmed.mjs';
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -57,7 +59,13 @@ export default defineConfig({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
-      [rehypePrettyCode, { theme: 'github-dark-dimmed' }],
+      [
+        rehypePrettyCode,
+        {
+          theme: { light: githubLight, dark: githubDarkDimmed },
+          keepBackground: false,
+        },
+      ],
       [
         rehypeAutolinkHeadings,
         {
